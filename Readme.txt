@@ -1,1 +1,1 @@
-Some useful algorithms implemented in C++
+Some useful algorithms implemented in C++.
