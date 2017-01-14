@@ -12,7 +12,7 @@ class quickFind{
 		init();
 	}
 	void init(){
-		for(int i=1;i<size;i++)
+		for(int i=1;i<=size;i++)
 		arr[i]=i;
 	}
 	bool isConnected(int p,int q){
@@ -23,7 +23,7 @@ class quickFind{
 		return;
 		int pid=arr[p];
 		int qid=arr[q];
-		for(int i=1;i<size;i++)
+		for(int i=1;i<=size;i++)
 			if(arr[i]==qid)
 				arr[i]=pid;
 	}
