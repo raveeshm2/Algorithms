@@ -15,10 +15,10 @@ class quickFind{
 		for(int i=1;i<=size;i++)
 		arr[i]=i;
 	}
-	bool isConnected(int p,int q){
+	bool isConnected(int p,int q){ // constant time
 		return (arr[p]==arr[q]);
 	}
-	void addUnion(int p,int q){
+	void addUnion(int p,int q){ // linear time
 		if(isConnected(p,q))
 		return;
 		int pid=arr[p];

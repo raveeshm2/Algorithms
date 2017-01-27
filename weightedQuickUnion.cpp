@@ -10,6 +10,7 @@ class weightedQU{
 				arr[i]=arr[arr[i]]; // to flatten the tree
 				i=arr[i];
 			}
+			return i;
 		}
 	public:
 		weightedQU(int size){
@@ -19,15 +20,15 @@ class weightedQU{
 			init();
 		}
 		void init(){
-			for(int i=1;i<=size;i++){
+			for(int i=1;i<size;i++){
 			arr[i]=i;
 			sz[i]=1;
 			}
 		}
-		bool isConnected(int p,int q){  // log n complexity
+		bool isConnected(int p,int q){  // log n time
 			return (findRoot(p)==findRoot(q));
 		}
-		void addUnion(int p,int q){
+		void addUnion(int p,int q){  // log n time
 			int proot=findRoot(p);
 			int qroot=findRoot(q);
 			if(sz[proot]<sz[qroot]){
@@ -39,8 +40,14 @@ class weightedQU{
 				sz[proot]+=sz[qroot];
 			}
 		}
+		long long result(){  // finds all possible pairs unconnected elements.
+			long long result=0;
+			for(int i=1;i<size;i++){
+				result+=(size-1-sz[findRoot(i)]);
+			}
+			return result/2;
+		}
 };
-
 
 int main(){
 	int n,p,q;
